@@ -586,16 +586,6 @@
     let soundEnabled = true; 
     let volume = 1.0; 
   
-    window.addEventListener('load', () => {
-      if (!localStorage.getItem('currentUser')) {
-        window.location.href = 'login.html'; 
-      } else {
-        const email = localStorage.getItem('currentUser');
-        const usuario = JSON.parse(localStorage.getItem(email));
-        document.getElementById('user-info').innerText = `Bem-vindo, ${usuario.nome}!`;
-      }
-    });
-
     const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     const gainNode = audioCtx.createGain();
     gainNode.gain.value = volume;
